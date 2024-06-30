@@ -22,8 +22,8 @@ def register_user(data):
             collection=authed_collection
         )
         new_user.save()
-
-        # Create JWT token
+        
+        # Create JWT tokens
         access_token = create_access_token(identity=new_user.email)
         return jsonify({'message': 'User registered successfully', 'access_token': access_token}), 201
 
